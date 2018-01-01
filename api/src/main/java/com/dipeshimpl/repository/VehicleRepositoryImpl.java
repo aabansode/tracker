@@ -74,6 +74,6 @@ public class VehicleRepositoryImpl implements VehicleRepository{
      */
 
     public void delete(Vehicle vehicle) {
-        entityManager.remove(vehicle);
+        entityManager.remove(entityManager.contains(vehicle) ? vehicle : entityManager.merge(vehicle));
     }
 }

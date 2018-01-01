@@ -25,6 +25,7 @@ public class VehicleServiceImpl implements VehicleService {
      * @param vehicles list of vehicles given by the user
      * @return list of vehicles
      */
+
     @Transactional
     public List<Vehicle> putAll(List<Vehicle> vehicles) {
 
@@ -36,5 +37,62 @@ public class VehicleServiceImpl implements VehicleService {
             }
         }
         return vehicles;
+    }
+
+    /**
+     * The method implements logic to create vehicle object.
+     *
+     * @param vehicle vehicle object to be created
+     * @return vehicle
+     */
+
+    @Transactional
+    public Vehicle create(Vehicle vehicle) {
+
+        if(vehicle!=null) {
+            vehicleRepository.create(vehicle);
+            return vehicle;
+        }
+        return null;
+    }
+
+    /**
+     * The method implements logic to find the list of vehicles.
+     *
+     * @return list of vehicles
+     */
+
+    @Transactional(readOnly = true)
+    public List<Vehicle> findAll() {
+        return vehicleRepository.findAll();
+    }
+
+    /**
+     * The method implements logic to delete a particular vehicle object.
+     *
+     * @param vehicle vehicle object
+     */
+
+    @Transactional
+    public void delete(Vehicle vehicle) {
+
+        if(vehicle!=null) {
+            vehicleRepository.delete(vehicle);
+        }
+    }
+
+    /**
+     * The method implements logic to find the vehicle with the help of its vin number
+     *
+     * @param vin VIN number of the vehicle
+     * @return vehicle
+     */
+
+    @Transactional(readOnly = true)
+    public Vehicle findOne(String vin) {
+        if(vin!=null || vin!="") {
+            return vehicleRepository.findOne(vin);
+        }
+        return null;
     }
 }
