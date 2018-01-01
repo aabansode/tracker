@@ -4,6 +4,13 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.UUID;
 
+/**
+ * The class is a tires entity which implements getter and setter in order to
+ * store and retrieve tires objects.
+ *
+ * @author Dipesh Nainani
+ */
+
 @Entity
 public class Tires {
 

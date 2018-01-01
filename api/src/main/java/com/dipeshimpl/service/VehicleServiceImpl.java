@@ -8,12 +8,23 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+/**
+ * The class is an implementation of vehicle service interface.
+ *
+ * @author Dipesh Nainani
+ */
 @Service
 public class VehicleServiceImpl implements VehicleService {
 
     @Autowired
-    VehicleRepository vehicleRepository;
+    private VehicleRepository vehicleRepository;
 
+    /**
+     * The method implements a PUT operation on the list of vehicles.
+     *
+     * @param vehicles list of vehicles given by the user
+     * @return list of vehicles
+     */
     @Transactional
     public List<Vehicle> putAll(List<Vehicle> vehicles) {
 

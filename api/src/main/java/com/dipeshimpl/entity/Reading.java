@@ -4,6 +4,13 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.UUID;
 
+/**
+ * The class is a reading entity which implements getter and setter in order to
+ * store and retrieve reading objects.
+ *
+ * @author Dipesh Nainani
+ */
+
 @Entity
 public class Reading {
 

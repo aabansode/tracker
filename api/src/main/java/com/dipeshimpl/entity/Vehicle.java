@@ -6,12 +6,18 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import java.util.Date;
 
+/**
+ * The class is a vehicle entity which implements getter and setter in order to
+ * store and retrieve vehicle objects.
+ *
+ * @author Dipesh Nainani
+ */
+
 @Entity
 @NamedQueries({
                 @NamedQuery(name = "Vehicle.findAll",
                             query = "SELECT vech FROM Vehicle vech")
              })
-
 public class Vehicle {
 
     @Id

@@ -1,6 +1,5 @@
 package com.dipeshimpl;
 
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -13,6 +12,14 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.Properties;
+
+/**
+ * The class defines the configuration for JPA.
+ * It contains path of the entity, details of hibernate
+ * and SQL database.
+ *
+ * @author Dipesh Nainani
+ */
 
 @Configuration
 @EnableTransactionManagement
