@@ -44,8 +44,8 @@ public class ReadController {
      */
     @RequestMapping(method = RequestMethod.GET, value = "/{vin}",
             produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public Reading findOne(@PathVariable String vin) {
-        return readService.findOne(vin);
+    public List<Reading> findReadings(@PathVariable("vin") String vin) {
+        return readService.findReadings(vin);
     }
 
 }

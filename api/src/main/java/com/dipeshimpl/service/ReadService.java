@@ -1,6 +1,9 @@
 package com.dipeshimpl.service;
 
+import com.dipeshimpl.entity.Alert;
 import com.dipeshimpl.entity.Reading;
+
+import java.util.List;
 
 /**
  * The interface declares method for the reading service.
@@ -22,5 +25,12 @@ public interface ReadService {
      * @param vin vin number of the car
      * @return reading of the vehicle
      */
-    Reading findOne(String vin);
+    List<Reading> findReadings(String vin);
+
+    /**
+     * This method helps in getting alerts with a type
+     * @param type type of alerts
+     * @return list of alerts
+     */
+    List<Alert> findAll(String type);
 }

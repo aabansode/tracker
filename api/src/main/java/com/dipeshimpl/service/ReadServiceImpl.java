@@ -92,9 +92,22 @@ public class ReadServiceImpl implements ReadService{
      * @return reading of the car
      */
     @Transactional(readOnly = true)
-    public Reading findOne(String vin) {
+    public List<Reading> findReadings(String vin) {
         if(vin!=null || vin!="") {
-            return readRepository.findOne(vin);
+            return readRepository.findAll(vin);
+        }
+        return null;
+    }
+
+    /**
+     * Helps in returning list of alerts with type
+     * @param type type of alert
+     * @return list of alerts
+     */
+    @Transactional(readOnly = true)
+    public List<Alert> findAll(String type) {
+        if(type!=null) {
+            alertRepository.findAlert(type);
         }
         return null;
     }

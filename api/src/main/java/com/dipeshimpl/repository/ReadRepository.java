@@ -23,6 +23,13 @@ public interface ReadRepository {
     Reading findOne(String vin);
 
     /**
+     * Gets the list of all readings with vin
+     * @param vin
+     * @return
+     */
+    List<Reading> findAll(String vin);
+
+    /**
      * The method helps in creating the entry for the readings.
      *
      * @param reading details of the reading

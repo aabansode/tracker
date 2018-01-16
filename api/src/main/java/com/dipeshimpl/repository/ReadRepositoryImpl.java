@@ -5,6 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 /**
  * The class is an implementation of the read repository interface.
@@ -31,6 +33,16 @@ public class ReadRepositoryImpl implements ReadRepository {
         return entityManager.find(Reading.class, vin);
     }
 
+
+    public List<Reading> findAll(String vin) {
+        if(vin!=null || vin!=""){
+            TypedQuery<Reading> query = entityManager.createNamedQuery("Reading.findAll", Reading.class);
+            query.setParameter("typeread", vin);
+            List<Reading> resultList = query.getResultList();
+            return resultList;
+        }
+        return null;
+    }
     /**
      * The method helps in creating the entry for the readings.
      *

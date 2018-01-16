@@ -12,6 +12,10 @@ import java.util.UUID;
  */
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Reading.findAll",
+                query = "SELECT read FROM Reading read WHERE read.vin=:typeread")
+})
 public class Reading {
 
     @Id
