@@ -16,4 +16,11 @@ public interface ReadService {
      */
 
     Reading create(Reading readings);
+
+    /**
+     * This method helps in getting the reading of the car.
+     * @param vin vin number of the car
+     * @return reading of the vehicle
+     */
+    Reading findOne(String vin);
 }

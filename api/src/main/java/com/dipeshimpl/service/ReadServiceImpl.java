@@ -84,4 +84,18 @@ public class ReadServiceImpl implements ReadService{
             return null;
         }
     }
+
+    /**
+     * This method helps in getting the reading of the car
+     *
+     * @param vin vin number of the car
+     * @return reading of the car
+     */
+    @Transactional(readOnly = true)
+    public Reading findOne(String vin) {
+        if(vin!=null || vin!="") {
+            return readRepository.findOne(vin);
+        }
+        return null;
+    }
 }
