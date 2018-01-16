@@ -1,0 +1,33 @@
+<div class = "data" align="center">
+<h1>List of the Vehicles</h1>
+
+<table class = "table">
+  <thead>
+  <tr>
+    <th></th>
+    <th>VIN</th>
+    <th>Make</th>
+    <th>Model</th>
+    <th>Year</th>
+    <th>RedLineRPM</th>
+    <th>MaxFuelVolume</th>
+    <th>LastServiceDate</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let car of cars">
+    <td>{{car.vin}}</td>
+    <td>{{car.make}}</td>
+    <td>{{car.model}}</td>
+    <td>{{car.year}}</td>
+    <td>{{car.redLineRpm}}</td>
+    <td>{{car.maxFuelVolume}}</td>
+    <td>{{car.lastServiceDate | date:"MM/dd/yy"}}</td>
+  </tr>
+  </tbody>
+</table>
+
+<br><br><br><br>
+<a routerLink="/front" routerLinkActive="active" class="btn btn-primary">Center Page</a>
+
+</div>
