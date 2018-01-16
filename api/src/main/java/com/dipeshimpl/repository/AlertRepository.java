@@ -2,6 +2,8 @@ package com.dipeshimpl.repository;
 
 import com.dipeshimpl.entity.Alert;
 
+import java.util.List;
+
 /**
  * The interface declares the method to store the alerts in the database.
  *
@@ -17,4 +19,13 @@ public interface AlertRepository {
      */
 
     Alert create(Alert alert);
+
+    /**
+     * The method helps in getting alert by type
+     * @param type type of the alert
+     * @return alert
+     */
+    List<Alert> findAlert(String type);
+
+
 }

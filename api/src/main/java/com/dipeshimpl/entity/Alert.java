@@ -11,6 +11,10 @@ import java.util.UUID;
  */
 
 @Entity
+@NamedQueries({
+        @NamedQuery(name = "Alert.findAll",
+                query = "SELECT aler FROM Alert aler WHERE aler.type=:typealer")
+})
 public class Alert {
 
     @Id

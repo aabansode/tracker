@@ -4,6 +4,8 @@ import com.dipeshimpl.entity.Alert;
 import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+import java.util.List;
 
 /**
  * The class implements the method in the alert repository interface.
@@ -28,4 +30,17 @@ public class AlertRepositoryImpl implements AlertRepository{
         entityManager.persist(alert);
         return alert;
     }
+
+    /**
+     * The method helps in getting alert based on type
+     * @param type type of the alert
+     * @return
+     */
+    public List<Alert> findAlert(String type) {
+        TypedQuery<Alert> query = entityManager.createNamedQuery("Alert.findAll", Alert.class);
+        query.setParameter("typealer", type);
+        List<Alert> resultList = query.getResultList();
+        return resultList;
+    }
+
 }
