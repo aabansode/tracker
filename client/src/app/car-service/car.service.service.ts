@@ -11,6 +11,7 @@ export class CarService {
 
   private carsUrl = 'http://localhost:8080/api/vehicles/';
   private readingUrl = 'http://localhost:8080/api/readings/';
+  private alertUrl = 'http://localhost:8080/api/alerts/';
   constructor(private http: HttpClient) { }
 
   getVehicles(): Observable<any[]> {
@@ -18,8 +19,12 @@ export class CarService {
       .catch(error  => Observable.throw(error.statusText));
   }
 
-  getVehicleWithVin(vin: String): Observable<any> {
-    return this.http.get<any>(this.readingUrl)
+  getVehicleWithVin(vin: String): Observable<any[]> {
+    return this.http.get<any[]>(this.readingUrl)
+      .catch(error => Observable.throw(error.statusText));
+  }
+  getVehicleWithType(type: String): Observable<any[]> {
+    return this.http.get<any[]>(this.alertUrl)
       .catch(error => Observable.throw(error.statusText));
   }
 
