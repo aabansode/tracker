@@ -1,3 +1,19 @@
-<p>
-  vehicle-location works!
-</p>
+<h1> Enter the Vin Number to get the Location!</h1>
+
+<a routerLink="/front" routerLinkActive="active" class="btn btn-primary">Center Page</a>
+<br><br><br><br><br><br>
+
+<form name="formnew" (submit)="getVehicleWithVin(vin)" #formnew="ngForm">
+<label for="vin">VIN</label>
+  <input type="text" #vinNumber="ngModel" [(ngModel)]="vin" name="vinNumber"
+         class="form-control" id="vin" placeholder="Enter VIN Number">
+  <div *ngIf="vinNumber.errors && (vinNumber.dirty || vinNumber.touched)" class="error"i>
+    <p [hidden]="!vinNumber.errors.required">VIN is required</p>
+    <p [hidden]="!vinNumber.errors.minlength">VIN must be of 4 or more chars</p>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">Submit</button>
+<br><br><br><br>
+</form>
+
+<h2>The resultant location are: </h2>
+<div *ngFor="let car of cars">{{car.latitude}} {{car.longitude}}</div>

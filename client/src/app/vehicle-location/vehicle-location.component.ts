@@ -9,9 +9,13 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class VehicleLocationComponent implements OnInit {
   cars;
+  vin;
   constructor(private carService: CarService, private route: ActivatedRoute) {
+  }
+
+  getVehicleWithVin(vin: String) {
     this.route.params.subscribe(params => {
-      carService.getVehicleWithVin(params.vin)
+      this.carService.getVehicleWithVin(params.vin)
         .subscribe(cars => this.cars = cars);
     });
   }
