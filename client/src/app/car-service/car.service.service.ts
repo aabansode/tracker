@@ -20,11 +20,13 @@ export class CarService {
   }
 
   getVehicleWithVin(vin: String): Observable<any[]> {
-    return this.http.get<any[]>(this.readingUrl)
+    return this.http.get<any[]>('http://localhost:8080/api/readings/${vin}')
+      .map(response => response)
       .catch(error => Observable.throw(error.statusText));
   }
   getVehicleWithType(type: String): Observable<any[]> {
-    return this.http.get<any[]>(this.alertUrl)
+    return this.http.get<any[]>('http://localhost:8080/api/alerts/${type}')
+      .map(response => response)
       .catch(error => Observable.throw(error.statusText));
   }
 
